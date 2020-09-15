@@ -1,0 +1,300 @@
+{
+	"info": {
+		"_postman_id": "cce5c17b-f33d-4497-b5fc-0c6735089233",
+		"name": "Bilyoner",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "GET ALL EVENTS",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/bilyoner/events/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"bilyoner",
+						"events",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "SAVE EVENTS",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"events\": [\n        {\n            \"name\": \"BJK-FB\",\n            \"mbs\": \"3\",\n            \"eventType\": \"FOOTBALL\",\n            \"eventDate\": \"2014-01-01 20:00\"\n        },\n        {\n            \"name\": \"BJK-GS\",\n            \"mbs\": \"2\",\n            \"eventType\": \"FOOTBALL\",\n            \"eventDate\": \"2021-02-20 20:00\"\n        },\n        {\n            \"name\": \"BJK-TS\",\n            \"mbs\": \"2\",\n            \"eventType\": \"FOOTBALL\",\n            \"eventDate\": \"2021-03-20 20:00\"\n        },\n        {\n            \"name\": \"BJK-ANT\",\n            \"mbs\": \"2\",\n            \"eventType\": \"FOOTBALL\",\n            \"eventDate\": \"2021-04-20 20:00\"\n        },\n        {\n            \"name\": \"BJK-GOZ\",\n            \"mbs\": \"2\",\n            \"eventType\": \"FOOTBALL\",\n            \"eventDate\": \"2021-05-20 20:00\"\n        },\n        {\n            \"name\": \"BJK-SIV\",\n            \"mbs\": \"1\",\n            \"eventType\": \"FOOTBALL\",\n            \"eventDate\": \"2021-06-20 20:00\"\n        },\n        {\n            \"name\": \"BJK-DEN\",\n            \"mbs\": \"1\",\n            \"eventType\": \"FOOTBALL\",\n            \"eventDate\": \"2021-07-20 20:00\"\n        },\n        {\n            \"name\": \"BJK-BAS\",\n            \"mbs\": \"1\",\n            \"eventType\": \"FOOTBALL\",\n            \"eventDate\": \"2021-08-20 20:00\"\n        },\n        {\n            \"name\": \"BJK-EFES\",\n            \"mbs\": \"1\",\n            \"eventType\": \"BASKETBALL\",\n            \"eventDate\": \"2021-09-20 20:00\"\n        },\n        {\n            \"name\": \"BJK-KARSIYAKA\",\n            \"mbs\": \"2\",\n            \"eventType\": \"BASKETBALL\",\n            \"eventDate\": \"2021-10-20 20:00\"\n        },\n        {\n            \"name\": \"BJK-ULKER\",\n            \"mbs\": \"2\",\n            \"eventType\": \"BASKETBALL\",\n            \"eventDate\": \"2021-11-20 20:00\"\n        },\n        {\n            \"name\": \"BJK-GS\",\n            \"mbs\": \"2\",\n            \"eventType\": \"BASKETBALL\",\n            \"eventDate\": \"2021-12-20 20:00\"\n        },\n        {\n            \"name\": \"BJK-TOFAS\",\n            \"mbs\": \"3\",\n            \"eventType\": \"BASKETBALL\",\n            \"eventDate\": \"2021-12-20 20:00\"\n        },\n        {\n            \"name\": \"Nadal-Federer\",\n            \"mbs\": \"1\",\n            \"eventType\": \"TENNIS\",\n            \"eventDate\": \"2021-12-15 20:00\"\n        },\n        {\n            \"name\": \"Nadal-Djokovic\",\n            \"mbs\": \"1\",\n            \"eventType\": \"TENNIS\",\n            \"eventDate\": \"2021-12-10 20:00\"\n        }\n    ]\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/bilyoner/events",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"bilyoner",
+						"events"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "SAVE USER BALANCE",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"balance\": 30\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8081/bilyoner/userBalances",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"bilyoner",
+						"userBalances"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "SAVE COUPONS",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"events\": [\n        {\n            \"eventId\": 12\n        },\n        {\n            \"eventId\": 15\n        }\n    ]\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/bilyoner/coupons",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"bilyoner",
+						"coupons"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET USER BALANCE",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8081/bilyoner/userBalances/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"bilyoner",
+						"userBalances",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update Balance",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "\n     {\n         \"changedAmount\":5.0\n     }\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8081/bilyoner/userBalances/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"bilyoner",
+						"userBalances",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Buy Coupon",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "[\n    {\n        \"id\":16\n    }\n]",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/bilyoner/coupons/buy/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"bilyoner",
+						"coupons",
+						"buy",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET COUPON",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/bilyoner/coupons?status=PLAYED",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"bilyoner",
+						"coupons"
+					],
+					"query": [
+						{
+							"key": "status",
+							"value": "PLAYED"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "FIND EVENTS",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/bilyoner/events",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"bilyoner",
+						"events"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "CANCEL COUPON",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"couponId\": 16\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/bilyoner/coupons/users/1/cancel",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"bilyoner",
+						"coupons",
+						"users",
+						"1",
+						"cancel"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "FIND USER COUPON",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/bilyoner/coupons/users/4",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"bilyoner",
+						"coupons",
+						"users",
+						"4"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}
