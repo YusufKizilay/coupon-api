@@ -3,6 +3,7 @@ package kizilay.yusuf.couponapi.service;
 import kizilay.yusuf.couponapi.entity.Coupon;
 import kizilay.yusuf.couponapi.entity.CouponStatus;
 import kizilay.yusuf.couponapi.entity.Event;
+import kizilay.yusuf.couponapi.execption.CouponAlreadyExistException;
 import kizilay.yusuf.couponapi.model.UserBalance;
 import kizilay.yusuf.couponapi.repository.CouponRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -38,8 +39,12 @@ public class CouponService {
             @CacheEvict(value = "couponCacheWithUserId", allEntries = true),
             @CacheEvict(value = "allCoupons", allEntries = true)
     })
-    public Coupon createCoupon(final List<Long> eventIds) {
-        Set<Event> events = couponValidator.validateCouponCreateProcess(eventIds);
+    @Transactional(rollbackFor = Exception.class)
+    public Coupon createCoupon(final Set<Long> eventIds) {
+        List<Coupon> existedCoupons = findCoupons(null);
+
+        Set<Event> events = couponValidator.validateCouponCreateProcess(eventIds,existedCoupons);
+
         Coupon coupon = new Coupon(CouponStatus.AVAILABLE, COUPON_COST, events);
 
         return couponRepository.save(coupon);

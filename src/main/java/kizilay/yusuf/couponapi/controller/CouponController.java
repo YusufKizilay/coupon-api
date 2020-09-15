@@ -34,7 +34,7 @@ public class CouponController extends BaseController {
     public ResponseEntity<Response> createCoupon(@RequestBody ArrayOfEvents eventsResource) {
         List<Event> events = ConverterUtil.toEntity(eventsResource);
 
-        List<Long> eventIds = events.stream().map(event -> event.getEventId()).collect(Collectors.toList());
+        Set<Long> eventIds = events.stream().map(event -> event.getEventId()).collect(Collectors.toSet());
 
         Coupon createdCoupon = couponService.createCoupon(eventIds);
 

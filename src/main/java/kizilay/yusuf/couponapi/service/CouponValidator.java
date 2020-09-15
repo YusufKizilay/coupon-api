@@ -7,10 +7,12 @@ import kizilay.yusuf.couponapi.entity.EventType;
 import kizilay.yusuf.couponapi.execption.*;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
+import org.springframework.util.CollectionUtils;
 
 import java.util.*;
 import java.util.concurrent.atomic.AtomicReference;
 import java.util.function.BinaryOperator;
+import java.util.stream.Collectors;
 
 @Service
 public class CouponValidator {
@@ -24,7 +26,23 @@ public class CouponValidator {
         this.eventService = eventService;
     }
 
-    public Set<Event> validateCouponCreateProcess(List<Long> eventIds) {
+    public Set<Event> validateCouponCreateProcess(Set<Long> eventIds, List<Coupon> existedCoupons) {
+        if (!CollectionUtils.isEmpty(existedCoupons)) {
+            existedCoupons.parallelStream().forEach(existedCoupon -> {
+                Set<Long> existingEventIds = existedCoupon.getEvents().stream().map(existingEvent -> existingEvent.getEventId()).collect(Collectors.toSet());
+
+                if (eventIds.equals(existingEventIds)) {
+                    throw new CouponAlreadyExistException("There is already a coupon with events given!");
+                }
+
+            });
+        }
+
+        return validateEvents(eventIds);
+
+    }
+
+    private Set<Event> validateEvents(Set<Long> eventIds) {
         final int eventSize = eventIds.size();
         final AtomicReference<EventType> includedEventType = new AtomicReference<>();
         final Set<Event> events = new HashSet<>();
@@ -64,7 +82,7 @@ public class CouponValidator {
     public void validateCouponCancelProcess(final Coupon coupon, final Long couponId, final Long userIdInput) {
         validateCouponExist(coupon, couponId);
 
-        if(!coupon.getUserId().equals(userIdInput)){
+        if (!coupon.getUserId().equals(userIdInput)) {
             throw new UnauthorizedCancelOperationException(String.format("The coupon does not belong to this user! couponId: %d, userId: %d", couponId, userIdInput));
         }
 
