@@ -53,7 +53,7 @@ public class Coupon implements Serializable {
         this.events = events;
     }
 
-    @ManyToMany(cascade = CascadeType.MERGE)
+    @ManyToMany(cascade = CascadeType.MERGE,fetch = FetchType.EAGER)
     @JoinTable(
             name = "COUPON_SELECTION",
             joinColumns = @JoinColumn(name = "COUPON_ID"),
